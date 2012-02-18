@@ -1,0 +1,14 @@
+{
+    "name": "application-name"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "express": "2.5.5"
+    , "jade": ">= 0.0.1"
+    , "request": ">= 2.9.100"
+    , "nodeunit": ">= 0.6.4"
+    , "coffee-script": ">= 1.2.0"
+    , "async": ">= 0.1.15"
+    , "mongoose": ">= 2.5.7"
+  }
+}
