@@ -1,8 +1,12 @@
 h1= title
-p Welcome to #{title}
-form
+form(name="input",action="login",method="post")
     | Username:
-    input(type="text",name="username")
+    input(type="text",name="user[name]")
     br
     | Password:
-    input(type="password",name="pwd")
+    input(type="password",name="user[password]")
+    br
+    input(type="submit",value="Login")
+div
+    h2= user.name
+    h2= user.password

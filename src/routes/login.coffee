@@ -1,13 +1,13 @@
-
 ###
  GET login page.
 ###
 
 module.exports = (req, res) ->
-    ###
-    if req.session.token isnt null
-        res.writeHead(303, { "location": settings.root_url + "home" })
-        res.end()
-    ###
+    user =
+        name: 'empty'
+        password: 'empty'
+    if req.body.user?
+        user.name = req.body.user.name
+        user.password = req.body.user.password
 
-    res.render('login', { title: 'Flower Delivery Service' })
+    res.render('login', { title: 'Flower Delivery Service', user: user})
