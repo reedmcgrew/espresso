@@ -1,7 +1,2 @@
-
-###
- GET home page.
-###
-
-exports.index = (req, res) ->
-  res.render('index', { title: 'Express' })
+exports.index = require './welcome'
+exports.login = require './login'

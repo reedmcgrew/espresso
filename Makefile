@@ -74,4 +74,4 @@ re-up:
 	make up
 
 
-.PHONY: db-up db-down compile-models compile-routes compile-static-files compile-views compile-server compile build test retest clean rebuild install uninstall run
+.PHONY: up down re-up compile-models compile-routes compile-static-files compile-views compile-server compile build test retest clean rebuild install uninstall run
