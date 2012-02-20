@@ -12,4 +12,4 @@ CREATE TABLE `users` (
 
 #USERS
 create user 'lab2_user'@'%' identified by 'silly pass';
-grant all on user_info.* to 'lab2_user'@'%';
+grant all on lab2_user_data.* to 'lab2_user'@'%';
