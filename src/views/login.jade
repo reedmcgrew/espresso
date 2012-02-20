@@ -1,12 +1,11 @@
 h1= title
-form(name="input",action="login",method="post")
+form(name="input",action="/authenticate",method="post")
     | Username:
-    input(type="text",name="user[name]")
+    input(type="text",name="user[username]")
     br
     | Password:
     input(type="password",name="user[password]")
     br
     input(type="submit",value="Login")
-div
-    h2= user.name
-    h2= user.password
+if error != ""
+    p1= error

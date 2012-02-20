@@ -7,10 +7,10 @@ exports.testAcceptance = (test) ->
     test.expect(num_assertions)
 
     #Set up
-    username = "rmcgrew"
+    username = "driver-rmcgrew"
     right_password = "pass"
     wrong_password = "wrongpass"
-    role = "flower-shop"
+    role = "driver"
 
 
     #Test saving and finding of users

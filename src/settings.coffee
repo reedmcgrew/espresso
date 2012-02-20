@@ -1,5 +1,6 @@
 #Web App Settings
 exports.session_secret = "ridic-ee-ous"
+exports.app_title = "Flower Delivery Brokerage"
 
 #Database
 exports.db_user = "lab2_user"

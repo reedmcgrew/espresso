@@ -1,0 +1,7 @@
+if user.role == 'flower-shop'
+    include welcome_flower_shop
+else
+    if user.role == 'driver'
+        include welcome_driver
+    else
+        p Unrecognized role #{user.role}

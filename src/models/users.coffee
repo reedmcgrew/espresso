@@ -23,8 +23,9 @@ exports.create = (username,password,role) ->
 
 exports.find = (username, event_catcher) ->
     announce_find = (err,results,field) =>
-        throw err if err
-        if results.length >= 1
+        if err
+            event_catcher.emit 'error', err
+        else if results.length >= 1
             result = results[0]
             user = new exports.User(result.username,result.password,result.role)
             event_catcher.emit 'find', user
