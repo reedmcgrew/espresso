@@ -13,12 +13,10 @@ error_template_vars =
 module.exports = (req, res) ->
     console.log("Hitting authenticate controller")
     if req.body.user
-        console.log(req.body.user)
         username = req.body.user.username
         password = req.body.user.password
         find_listener = new EventEmitter
         find_callback = (user) =>
-            console.log("ENTERING FIND CALLBACK 18")
             if user? and user.password is password
 
                 flat_user =
@@ -30,7 +28,7 @@ module.exports = (req, res) ->
 
                 #Pass to welcome page
                 console.log("GOING TO WELCOME PAGE")
-                res.render('welcome', {title: settings.app_title, user: user})
+                res.redirect('/welcome')
             else
                 console.log("GOING BACK TO LOGIN 29")
                 #Pass back to login with error
