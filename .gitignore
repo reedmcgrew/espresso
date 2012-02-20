@@ -2,4 +2,6 @@ node_modules
 ./models
 ./views
 ./routes
+./public
 ./app.js
+./settings.js

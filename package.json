@@ -9,6 +9,6 @@
     , "nodeunit": ">= 0.6.4"
     , "coffee-script": ">= 1.2.0"
     , "async": ">= 0.1.15"
-    , "mongoose": ">= 2.5.7"
+    , "mysql": ">= 0.9.5"
   }
 }
