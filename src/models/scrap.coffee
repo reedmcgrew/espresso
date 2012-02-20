@@ -1,6 +1,10 @@
 users = require './users'
 {EventEmitter} = require 'events'
 
+
+
+
+
 user = users.create('foo','bar')
 user.on 'save', () ->
     console.log('we got here')
