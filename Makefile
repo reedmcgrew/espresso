@@ -60,7 +60,7 @@ uninstall:
 
 run:
 	make rebuild
-	sudo node ./bin/app.js
+	sudo node ./app.js
 
 #DATABASE MIGRATIONS
 up:
