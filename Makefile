@@ -63,10 +63,15 @@ run:
 	sudo node ./bin/app.js
 
 #DATABASE MIGRATIONS
-db-up:
+up:
 	mysql -u root < ./src/migrations/up.sql
 
-db-down:
+down:
 	mysql -u root < ./src/migrations/down.sql
+
+re-up:
+	make down
+	make up
+
 
 .PHONY: db-up db-down compile-models compile-routes compile-static-files compile-views compile-server compile build test retest clean rebuild install uninstall run
