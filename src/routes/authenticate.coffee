@@ -30,7 +30,7 @@ module.exports = (req, res) ->
 
                 #Pass to welcome page
                 console.log("GOING TO WELCOME PAGE")
-                res.render('welcome', {title: settings.app_title, user: flat_user})
+                res.render('welcome', {title: settings.app_title, user: user})
             else
                 console.log("GOING BACK TO LOGIN 29")
                 #Pass back to login with error
