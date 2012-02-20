@@ -1,12 +1,10 @@
 mysql = require('mysql')
+settings = require('../settings')
 #Options
-db_user = 'foursquare_user'
-db_pass = 'silly pass'
-db_database = 'user_data'
 options =
-  user: db_user
-  password: db_pass
-  database: db_database
+  user: settings.db_user
+  password: settings.db_pass
+  database: settings.db_database
 
 
 db = null

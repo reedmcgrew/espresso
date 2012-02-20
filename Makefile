@@ -1,3 +1,4 @@
+#COMPILATION
 compile-models:
 	mkdir ./models
 	coffee -o ./models -c ./src/models/*.coffee
@@ -26,6 +27,7 @@ compile:
 	make compile-views
 	make compile-server
 
+#ADMINISTRATIVE
 build:
 	make compile
 
@@ -60,4 +62,11 @@ run:
 	make rebuild
 	sudo node ./bin/app.js
 
-.PHONY: compile-models compile-routes compile-static-files compile-views compile-server compile build test retest clean rebuild install uninstall run
+#DATABASE MIGRATIONS
+db-up:
+	mysql -u root < ./src/migrations/up.sql
+
+db-down:
+	mysql -u root < ./src/migrations/down.sql
+
+.PHONY: db-up db-down compile-models compile-routes compile-static-files compile-views compile-server compile build test retest clean rebuild install uninstall run
