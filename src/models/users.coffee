@@ -26,7 +26,7 @@ exports.find = (username, event_catcher) ->
         throw err if err
         if results.length >= 1
             result = results[0]
-            user = new exports.User(result.username,result.password)
+            user = new exports.User(result.username,result.password,result.role)
             event_catcher.emit 'find', user
         else
             event_catcher.emit 'find', null
