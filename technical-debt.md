@@ -1,8 +1,11 @@
-### To-Do: Urgent
+### To-Do: Critical Path
 - DONE Create middleware so that from login it will redirect to welcome page if the user session is set.
 - DONE Create middleware so that from all other pages it will redirect to login if the user session is not set.
 - Implement Logout
-- Create sign-up page
+- DONE Create sign-up page and account creation
+
+### To-Do: Code Cleanup
+- The account creation controller is really messy (create.coffee).  It needs to be simplified
 
 ### To-Do: Nice
 - Refactor the database migrations setup to depend on the same file as the rest of the app for its database name, user, and password
