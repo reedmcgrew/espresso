@@ -37,17 +37,20 @@ Routes
 ###
 middleware = require './middleware'
 authorize = middleware.force_login
+skip_if_authorized = middleware.skip_if_authorized
 
 #authentication
-app.get('/login/:error', routes.login)
-app.get('/login', routes.login)
-app.post('/authenticate', routes.authenticate)
+app.get('/login/:error', skip_if_authorized, routes.login)
+app.get('/login', skip_if_authorized, routes.login)
+app.post('/authenticate', skip_if_authorized, routes.authenticate)
+app.get('/signup/:error', skip_if_authorized, routes.signup)
+app.get('/signup', skip_if_authorized, routes.signup)
 
 #app pages
 app.get('/welcome', authorize, routes.welcome)
 
 #wild card
-app.all('/:anything', routes.login)
+app.all('/:anything?', routes.login)
 
 ###
 Start Server

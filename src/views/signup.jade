@@ -1,0 +1,28 @@
+h1= title
+h2 Create a New Account
+form(name="input",action="/create",method="post")
+    | *Username:
+    input(type="text",name="user[username]")
+    br
+    | *Account Type:
+    br
+    input(type="radio",name="user[role]",value="flower-shop")
+    |  Flower Shop Administrator
+    br
+    input(type="radio",name="user[role]",value="driver")
+    |  Delivery Person
+    br
+    | *Password:
+    input(type="password",name="user[password]")
+    br
+    | *Retype Password:
+    input(type="password",name="user[retype_password]")
+    br
+    input(type="submit",value="Create Account")
+
+p Already have an account?  
+    a(href="/login")
+        | Sign in here.
+
+if error != ""
+    p1= error

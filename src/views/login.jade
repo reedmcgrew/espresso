@@ -1,4 +1,6 @@
 h1= title
+h2 Sign In
+
 form(name="input",action="/authenticate",method="post")
     | Username:
     input(type="text",name="user[username]")
@@ -6,6 +8,11 @@ form(name="input",action="/authenticate",method="post")
     | Password:
     input(type="password",name="user[password]")
     br
-    input(type="submit",value="Login")
+    input(type="submit",value="Sign In")
+
+p Don't have an account?  
+    a(href="/signup")
+        | Create one here.
+
 if error != ""
     p1= error
