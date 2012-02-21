@@ -2,6 +2,7 @@
 exports.session_secret = "ridic-ee-ous"
 exports.app_title = "Flower Delivery Brokerage"
 exports.app_url = "http://ec2-184-73-141-117.compute-1.amazonaws.com/"
+exports.account_types = ["driver","flower-shop"]
 
 #Database
 exports.db_user = "lab2_user"

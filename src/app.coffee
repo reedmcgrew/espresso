@@ -45,6 +45,7 @@ app.get('/login', skip_if_authorized, routes.login)
 app.post('/authenticate', skip_if_authorized, routes.authenticate)
 app.get('/signup/:error', skip_if_authorized, routes.signup)
 app.get('/signup', skip_if_authorized, routes.signup)
+app.post('/create', skip_if_authorized, routes.create)
 
 #app pages
 app.get('/welcome', authorize, routes.welcome)
