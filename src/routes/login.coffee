@@ -3,4 +3,5 @@
 ###
 
 module.exports = (req, res) ->
-    res.render('login', { error: "", title: settings.app_title})
+    error = if req.params.error? then decodeURIComponent(req.params.error) else ""
+    res.render('login', { error: error, title: settings.app_title})

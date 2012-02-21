@@ -38,9 +38,10 @@ console.log("Binding Routes for #{settings.app_title}")
 Routes
 ###
 app.get('/', routes.index)
+app.get('/login/:error', routes.login)
 app.get('/login', routes.login)
-app.post('/authenticate', routes.authenticate)
 app.get('/welcome', routes.welcome)
+app.post('/authenticate', routes.authenticate)
 
 app.listen(80)
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env)

@@ -5,7 +5,7 @@
 users = require('../models/users')
 settings = require('../settings')
 {EventEmitter} = require 'events'
-auth_error_message = "The username and password your provided were not found."
+auth_error_message = encodeURIComponent("The username and password your provided were not found.")
 error_template_vars =
     error: auth_error_message
     title: settings.app_title
@@ -32,7 +32,7 @@ module.exports = (req, res) ->
             else
                 console.log("GOING BACK TO LOGIN 29")
                 #Pass back to login with error
-                res.render('login',error_template_vars)
+                res.redirect("/login/#{auth_error_message}")
 
         find_listener.on 'find', find_callback
         users.find(username,find_listener)
