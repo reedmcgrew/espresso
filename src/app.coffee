@@ -2,9 +2,8 @@
 Module dependencies.
 ###
 express = require 'express'
-global.routes = require './routes'
-global.settings = require './settings'
-global.models = require './models'
+routes = require './routes'
+settings = require './settings'
 
 app = express.createServer()
 module.exports = app
@@ -32,16 +31,26 @@ app.configure('production', () ->
   app.use(express.errorHandler())
 )
 
-console.log("Binding Routes for #{settings.app_title}")
 
 ###
 Routes
 ###
-app.get('/', routes.index)
+middleware = require './middleware'
+authorize = middleware.force_login
+
+#authentication
 app.get('/login/:error', routes.login)
 app.get('/login', routes.login)
-app.get('/welcome', routes.welcome)
 app.post('/authenticate', routes.authenticate)
 
+#app pages
+app.get('/welcome', authorize, routes.welcome)
+
+#wild card
+app.all('/:anything', routes.login)
+
+###
+Start Server
+###
 app.listen(80)
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env)
