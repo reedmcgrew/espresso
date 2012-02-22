@@ -49,10 +49,12 @@ app.post('/create', skip_if_authorized, routes.create)
 
 #app pages
 app.get('/welcome', authorize, routes.welcome)
-
+app.get('/welcome/:error', authorize, routes.welcome)
 #event broker
-app.post('/events', routes.recv_event)
-app.post('/events::port', routes.recv_event)
+app.post('/events', authorize, routes.recv_event)
+app.post('/events::port', authorize, routes.recv_event)
+app.post('/eslocators', authorize, routes.eslocators)
+app.post('/eslocators::port', authorize, routes.eslocators)
 
 #wild card
 app.all('/:anything?', routes.login)
