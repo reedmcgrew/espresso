@@ -50,6 +50,10 @@ app.post('/create', skip_if_authorized, routes.create)
 #app pages
 app.get('/welcome', authorize, routes.welcome)
 
+#event broker
+app.post('/events', routes.recv_event)
+app.post('/events::port', routes.recv_event)
+
 #wild card
 app.all('/:anything?', routes.login)
 
