@@ -2,12 +2,28 @@
     Handle event from generator
 ###
 eslocators = require('../models/eslocators')
+error_back = (message,res) ->
+    encoded_message = encodeURIComponent(message)
+    res.redirect("/welcome/#{encoded_message}")
+    
 module.exports = (req, res) ->
-    if not req.body._domain?
-        throw "_domain field MUST be set and is not!"
-    if not req.body._domain?
-        throw "_name field MUST be set and is not!"
+    #Validate Form Input
+    if !req.body.pickup_by
+        error_back("Please Enter a Pickup Time.",res)
+    
+    if !req.body.shop_address
+        error_back("Please Enter the flower shop's address",res)
 
+    if !req.body.customer_address
+        error_back("Please Enter the customer's address", res)
+        message = encodeURIComponent("Please Enter the customer's address")
+        res.redirect("/welcome/#{message}")
+
+    
+
+    #Generate Event
+    req.body._domain = "rfq"
+    req.body._name = "delivery_ready"
     opts =
         method: "POST"
         headers:
@@ -32,4 +48,5 @@ module.exports = (req, res) ->
             #initiate requests sequence
             rec_request
 
+    #list the event signal locators and sent the event to them
     eslocators.list(callback)

@@ -1,1 +1,19 @@
 p Welcome flower shop admin #{user.username} with role #{user.role}!
+h2 Enter New Delivery Request
+form(name="input",action="/recv_event",method="post")
+    | *Flower Shop Address:
+    input(type="text",name="shop_address")
+    br
+    | *Pick-up Time:
+    input(type="text",name="pickup_by")
+    br
+    | *Customer Address:
+    input(type="text",name="customer_address")
+    br
+    | Delivery Time (If Urgent):
+    input(type="text",name="deliver_by")
+    br
+    input(type="submit",value="Submit")
+
+if error != ""
+    p1= error
