@@ -50,14 +50,20 @@ app.post('/create', skip_if_authorized, routes.create)
 #app pages
 app.get('/welcome', authorize, routes.welcome)
 app.get('/welcome/:error', authorize, routes.welcome)
-#event broker
+
+#consumer
+app.post('/consume', routes.consume)
+app.post('/consume/:id', routes.consume)
+
+#generator
 app.post('/events', authorize, routes.recv_event)
 app.post('/events::port', authorize, routes.recv_event)
 app.post('/eslocators', authorize, routes.eslocators)
 app.post('/eslocators::port', authorize, routes.eslocators)
+app.post('/gen_event', authorize, routes.gen_event)
 
 #wild card
-app.all('/:anything?', routes.login)
+#app.all('/:anything?', skip_if_authorized, routes.login)
 
 ###
 Start Server
