@@ -51,18 +51,7 @@ app.post('/create', skip_if_authorized, routes.create)
 app.get('/welcome', authorize, routes.welcome)
 app.get('/welcome/:error', authorize, routes.welcome)
 
-#consumer
-app.post('/consume', routes.consume)
-app.post('/consume/:id', routes.consume)
-
-#generator
-app.post('/events', authorize, routes.recv_event)
-app.post('/events::port', authorize, routes.recv_event)
-app.post('/eslocators', authorize, routes.eslocators)
-app.post('/eslocators::port', authorize, routes.eslocators)
-app.post('/gen_event', authorize, routes.gen_event)
-
-#wild card
+#wild card: Only use this in production. It can hide bugs with the way your routes are set up.
 #app.all('/:anything?', skip_if_authorized, routes.login)
 
 ###
