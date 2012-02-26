@@ -1,10 +1,5 @@
-### To-Do: Critical Path
-- DONE Create middleware so that from login it will redirect to welcome page if the user session is set.
-- DONE Create middleware so that from all other pages it will redirect to login if the user session is not set.
-- DONE Create sign-up page and account creation
-- Implement status code 410 checking on the event requests
+### To-Do
 - Keep user ids in the session so they can be used throughout the site. Try using last_insert_id
-- Put user id from the session into the ESL table
 - Add first name and last name to the signup page
 
 
